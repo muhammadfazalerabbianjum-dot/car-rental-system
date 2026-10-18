@@ -1,0 +1,122 @@
+[
+  {
+    "carId": "C101",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "type": "Sedan",
+    "color": "White",
+    "registrationNo": "LEA-4521",
+    "year": 2022,
+    "seatingCapacity": 5,
+    "rentPerDay": 4500.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C102",
+    "brand": "Honda",
+    "model": "City",
+    "type": "Sedan",
+    "color": "Silver",
+    "registrationNo": "KHI-8891",
+    "year": 2021,
+    "seatingCapacity": 5,
+    "rentPerDay": 3800.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C103",
+    "brand": "Suzuki",
+    "model": "Alto",
+    "type": "Hatchback",
+    "color": "Blue",
+    "registrationNo": "RWP-1102",
+    "year": 2024,
+    "seatingCapacity": 4,
+    "rentPerDay": 2500.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C104",
+    "brand": "Toyota",
+    "model": "Fortuner",
+    "type": "SUV",
+    "color": "Pink",
+    "registrationNo": "ISB-3344",
+    "year": 2020,
+    "seatingCapacity": 8,
+    "rentPerDay": 19999.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C105",
+    "brand": "Suzuki",
+    "model": "Cultus",
+    "type": "Hatchback",
+    "color": "Grey",
+    "registrationNo": "LHR-5566",
+    "year": 2019,
+    "seatingCapacity": 5,
+    "rentPerDay": 3200.0,
+    "isAvailable": false
+  },
+  {
+    "carId": "C106",
+    "brand": "Honda",
+    "model": "Civic",
+    "type": "Sedan",
+    "color": "Red",
+    "registrationNo": "FSB-9012",
+    "year": 2022,
+    "seatingCapacity": 5,
+    "rentPerDay": 5500.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C107",
+    "brand": "Suzuki",
+    "model": "Wagon R",
+    "type": "Hatchback",
+    "color": "Pearl White",
+    "registrationNo": "GUJ-7788",
+    "year": 2021,
+    "seatingCapacity": 5,
+    "rentPerDay": 2800.0,
+    "isAvailable": true
+  },
+  {
+    "carId": "C1011",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "type": "SUV",
+    "color": "White",
+    "registrationNo": "BPB-321",
+    "year": 2023,
+    "seatingCapacity": 6,
+    "rentPerDay": 5000.0,
+    "isAvailable": false
+  },
+  {
+    "carId": "C108",
+    "brand": "HONDA",
+    "model": "City",
+    "type": "Sedan",
+    "color": "Black",
+    "registrationNo": "BA-056",
+    "year": 2021,
+    "seatingCapacity": 4,
+    "rentPerDay": 3000.0,
+    "isAvailable": false
+  },
+  {
+    "carId": "C1020",
+    "brand": "Nissan",
+    "model": "Skyline",
+    "type": "coupe",
+    "color": "red",
+    "registrationNo": "GTS-33",
+    "year": 1995,
+    "seatingCapacity": 4,
+    "rentPerDay": 5000.0,
+    "isAvailable": true
+  }
+]

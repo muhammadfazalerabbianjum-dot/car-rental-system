@@ -1,0 +1,43 @@
+================================================================================
+BROKEN HIGHWAY (AJX-704 Edition) - PRESENTATION SCRIPT
+================================================================================
+(Use this as your exact script to read from during your presentation)
+
+--------------------------------------------------------------------------------
+PART 1: INTRO (Slide 1)
+--------------------------------------------------------------------------------
+"Good [morning/afternoon], everyone. My name is [Your Name], and for my CS101 lab project, I built 'Broken Highway: AJX-704 Edition'. 
+
+This is a high-speed arcade gap-jumping game. What makes this project special is that I built it entirely from scratch using only Python's built-in standard library. I didn’t use Unity, Godot, or even Pygame. Every frame of physics, gravity, and collision was written using raw mathematics and drawn onto a basic Tkinter canvas.
+
+The game is a tribute to my friends and a real-life car we hold very close to our hearts: the AJX-704, which is a customized X90 Toyota Mark II drift car powered by a 1JZ-GTE engine. I actually modeled the heavy gravity, speed physics, and spark generation in this game strictly to simulate the raw drifting mechanics of that exact 1JZ-GTE engine!"
+
+--------------------------------------------------------------------------------
+PART 2: KEY FEATURES (Slide 2 - Show gameplay screenshots here)
+--------------------------------------------------------------------------------
+"The key features of Broken Highway are designed to showcase core CS programming fundamentals:
+1. First, we have the 'Juice Engine'. The game actively tracks how long the car is in the air. When you land from a massive jump, the engine mathematically maps that air-time to generate custom particle sparks, skid marks, and an exponential camera screen-shake.
+2. Second, we have a 7-Layer Parallax Background. As the car drives, the close trees move fast, the distant buildings move slow, and the sunset sky remains static. This creates true 3D depth.
+3. Third, dynamic scaling. As your score gets higher, the game hits velocity spikes, making the car travel faster and forcing the player to react quicker, requiring precise 'double jumps'."
+
+--------------------------------------------------------------------------------
+PART 3: GAME LOGIC & HOW IT WORKS (Slide 3 - Show the RAPTOR flowchart)
+--------------------------------------------------------------------------------
+"So, how does it actually work under the hood? The engine relies on three major concepts:
+
+1. THE EVENT LOOP (The Kernel):
+Instead of typical software that pauses and waits for user input, this game runs a continuous non-blocking hardware loop natively in the background. It wipes the screen and redraws every single item 60 times a second using a timer interrupt. This is the 'heartbeat' of the engine.
+
+2. AABB COLLISION MATHEMATICS:
+How do we know if the car fell into a gap? We use AABB, which stands for Axis-Aligned Bounding Box collision. We define an invisible rectangle around the car and the gaps. If their X and Y coordinate domains intersect, the program drops an 'Is Alive' boolean to False and triggers the Game Over state.
+
+3. KINEMATICS & GRAVITY:
+Gravity in this game isn't a complex physics engine—it's simply integer addition! The car has a Y-Velocity variable. Every single frame, gravity is added to that velocity, pulling the car down pixel by pixel. When you press the SPACE bar, we instantly set the vertical velocity to a negative number, pushing the car up against the pull of gravity!"
+
+--------------------------------------------------------------------------------
+PART 4: CONCLUSION (Slide 4)
+--------------------------------------------------------------------------------
+"In conclusion, building Broken Highway taught me that high-level game engines abstract away the hardest parts of computer science. By forcing myself to build this using strictly basic logic formats—Variables, Loops, Conditionals, and Classes—I really learned how real-time rendering and state machines operate at a fundamental level. Plus, getting to immortalize the AJX-704 in a video game was an amazing experience. 
+
+Thank you, and I’m open to any questions."
+================================================================================

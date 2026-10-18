@@ -1,0 +1,6 @@
+To run open CMD in this folder , copy address and use cd /d command
+compile it in cmd with javac CarRentalSystem.java
+run it in CMD with java CarRentalSystem
+admin password CRS2026 hai , case sensitive as well
+added a new car today and changed the fortuner's color to pink just for the sake of testing , may revert if wanted
+new car added is a 1995 Nissan Skyline GTS with C1020 ID 
