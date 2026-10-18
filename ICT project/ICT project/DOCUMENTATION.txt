@@ -1,0 +1,111 @@
+================================================================================
+DOCUMENTATION.txt - Broken Highway: Antigravity Arc Jumper (AJX-704 Edition)
+Lab Project Documentation | Presentation & NotebookLM Resource
+================================================================================
+
+PROJECT LORE: THE AJX-704
+-------------------------
+At the heart of this project lies the AJX-704 - a mechanical masterclass inspired by a real-world legend. AJX-704 is an X90 Toyota Mark II, famously powered by the 1JZ-GTE engine. This project is a tribute to that specific drift car, beloved by its creators and their friends. The engine physics mapping in this game (acceleration, gravity decay, sudden velocity spikes, and hard-landing sparks) simulates the chaotic, raw drift power of a customized 1JZ-GTE pushing the limits on a broken, suspended bridge. Keep this in mind when discussing the "game feel" and motivation during presentations.
+
+================================================================================
+1. PROBLEM STATEMENT & ACADEMIC VALUE
+================================================================================
+
+Modern game engines like Unity or Godot abstract away the difficult fundamentals of computer science and physics programming. This project deliberately rejects those crutches. We set out to build a complete, playable, real-time arcade game using ONLY Python's built-in standard libraries (tkinter, math, random, time).
+
+The specific challenge was to implement:
+- Real-time kinematics (gravity, velocity tracking, AABB collision boundaries)
+- A non-blocking 60 FPS rendering pipeline in a GUI framework
+- Pure Python Data Structures mapped to a finite state machine (FSM)
+
+The gap-jumping arcade format was chosen because it exercises core CS101 programming concepts (Variables, Conditionals, Loops, Strings, and Object-Oriented polymorphism) in an intuitive, visual, and highly satisfying way.
+
+================================================================================
+2. PRESENTATION RESOURCE: RAPTOR FLOWCHARTS & LIMITATIONS
+================================================================================
+
+If presenting an architectural diagram or RAPTOR flowchart alongside this project, it is critical to explicitly mention the limitations of RAPTOR for real-time applications.
+
+What RAPTOR CAN do:
+- Map out the top-level procedural logic of our code (e.g., Variable assignment, While loops, If/Else branching based on 'Is Alive' flags).
+
+What RAPTOR CANNOT do (The "Why we wrote raw Python" argument):
+- Object-Oriented Programming: RAPTOR doesn't understand Classes. Our game uses `class Car`, `class Gap`, and `class ParallaxBackground` to instantiate state natively.
+- Asynchronous Event Loops: RAPTOR is completely linear and blocking. To hit 60 FPS and accept keyboard input simultaneously, our engine utilizes `root.after(16, _update)` to create a non-blocking hardware timer loop. RAPTOR simply cannot represent this.
+- Collision Mathematics: AABB (Axis-Aligned Bounding Box) mathematical intersection across parallel moving arrays.
+
+*A simplified top-level Mermaid Flowchart of the game loop has been generated separately in `presentation_flowchart.md` which you can use as your visual slide.*
+
+================================================================================
+3. GAMEPLAY & VISUAL MECHANICS
+================================================================================
+
+GAMEPLAY / THE JUICE ENGINE:
+- You pilot the AJX-704 (X90 Mark II). Press SPACE to jump over bridge gaps.
+- True Double Jump support (press SPACE mid-air to trigger a second burst).
+- One life constraint: fall through a gap = game over.
+- The Juice Engine: Hard landings trigger proportional screen-shake and directional physics particle sparks.
+- Scaling difficulty via velocity spikes at score milestones.
+
+VISUAL PARALLAX REWRITE:
+- 7-layer parallax sunset background with true Z-index sorting.
+- Layer 1: Static deep violet-to-golden-yellow sky gradient.
+- Layer 2/3: Realistic Sun, Moon, and Shooting Stars that update based on time.
+- Layer 4: Distant foggy atmospheric mountains mirroring a hazy skyline.
+- Layer 5: Procedurally generated skyscrapers with deterministic window tints.
+- Layer 6: Renegade Racing-inspired drooping utility wires spanning across the sky.
+- Gap Geology: The highway breaks logically in chunks. Gaps no longer just "float" in the sky, you can see deep oceanic water beneath the bridge and the cross-sectional mud structure on the sides.
+
+SCORING
+  distance_score = total_frames × 0.5
+  gap_bonus      = gaps_cleared × 100
+  total_score    = int(distance_score) + gap_bonus
+  (Saved to highscore.txt)
+
+================================================================================
+4. MODULE ARCHITECTURE (8 Files)
+================================================================================
+
+brokenHighway/
+├── main.py       Entry point. Native tkinter resolution picker dialog. Creates Tk window and starts the central Game engine.
+│
+├── config.py     Single Source of Truth. Contains immutable constants for physics (gravity, jumps), colours, and threshold boundaries.
+│
+├── assets.py     Loads the Mark II / car.png using tkinter.PhotoImage. Subsamples and shrinks. Reads/writes highscore.txt safely.
+│
+├── physics.py    Pure stateless math functions:
+│                 - apply_gravity()
+│                 - aabb_overlap() for hitboxes
+│
+├── entities.py   Polymorphism & Classes:
+│                 - Car (handles vertical kinematics, particles)
+│                 - Gap (handles scrolling positions)
+│                 - Particle (spark decay system)
+│
+├── parallax.py   The Rendering Pipeline:
+│                 - Maintains scrolling lists for stars, buildings, hills.
+│                 - Executes boolean segmentation to draw continuous roads vs gaps to properly snap guardrails visually.
+│
+├── ui.py         Five GUI overlay states: Start, Count, HUD, Pause, GameOver.
+│
+└── game.py       The Heart/Kernel. Manages the 60 FPS root.after loop and processes the finite state machine.
+
+================================================================================
+5. CS101 CONCEPT MAPPING FOR PRESENTERS
+================================================================================
+
+CONCEPT         WHERE USED (TALKING POINTS)
+-----------     -------------------------------------------------
+VARIABLES       We avoided raw "magic numbers". Everything is stored in config.py or instance variables (`self.speed`, `self.score`).
+
+CONDITIONALS    AABB Box intersections mapping player (`self.car`) against (`gap`). If TRUE, state becomes `STATE_DYING`.
+
+LOOPS           Frame-by-frame updates (`for gap in self.gaps:`). Using loops to draw multiple scrolling parallax entities cleanly without redundancy.
+
+FUNCTIONS       Stateless abstraction in physics.py ensures that gravity math isn't cluttered inside the rendering routines.
+
+OOP / CLASSES   Encapsulation. `game.py` doesn't need to know *how* to draw the car; it just tells the `Car` object to `.draw(canvas)`.
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================

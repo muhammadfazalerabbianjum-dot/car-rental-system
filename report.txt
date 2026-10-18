@@ -1,0 +1,4 @@
+Total Revenue   : Rs 48000
+Most Rented     : Toyota Fortuner (1 times)
+Active Rentals  : 0
+Past Rentals    : 1

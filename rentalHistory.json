@@ -1,0 +1,12 @@
+[
+  {
+    "rentalId": "R001",
+    "carId": "c104",
+    "customerName": "faze",
+    "days": 4,
+    "totalCost": 48000.0,
+    "startDate": "2026-05-16",
+    "dueDate": "2026-05-20",
+    "returnDate": "2026-05-16"
+  }
+]
