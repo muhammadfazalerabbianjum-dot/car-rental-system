@@ -32,7 +32,7 @@ report.
 | `cars.json` | The fleet: id, brand, model, type, colour, registration, year, seats, daily rate, availability |
 | `rentals.json` | Rentals currently open |
 | `rentalHistory.json` | Every rental that was returned |
-| `report.txt` | Output of the admin report |
+| `report.txt` | Written by the admin report at runtime; generated, so not tracked |
 
 Each file is read at startup and rewritten on change, so the app keeps its state
 between runs. `SimpleJson` and `RentalJson` inside the class do the writing and
