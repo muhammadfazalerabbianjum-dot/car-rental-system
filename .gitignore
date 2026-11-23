@@ -31,3 +31,6 @@ secrets/
 # Python bytecode
 *.pyc
 __pycache__/
+# runtime state written by the app on change
+rentals.json
+report.txt
