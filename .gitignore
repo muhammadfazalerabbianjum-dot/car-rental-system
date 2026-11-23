@@ -28,3 +28,6 @@ Thumbs.db
 .env
 *.token
 secrets/
+# Python bytecode
+*.pyc
+__pycache__/
